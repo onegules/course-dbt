@@ -5,8 +5,8 @@ config(
 }}
 
 SELECT
-    product_id,
-    name AS name_of_product,
+    product_id AS product_guid,
+    name AS product_name,
     price,
     inventory
 

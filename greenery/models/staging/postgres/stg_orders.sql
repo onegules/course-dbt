@@ -5,15 +5,15 @@ config(
 }}
 
 SELECT 
-    order_id,
-    user_id,
-    promo_id,
-    address_id,
+    order_id AS order_guid,
+    user_id AS user_guid,
+    promo_id AS promo_type,
+    address_id AS address_guid,
     created_at AS created_at_utc,
     order_cost,
     shipping_cost,
     order_total,
-    tracking_id,
+    tracking_id AS tracking_guid,
     shipping_service,
     estimated_delivery_at AS estimated_delivery,
     delivered_at,

@@ -5,7 +5,7 @@ config(
 }}
 
 SELECT
-    address_id,
+    address_id AS address_guid,
     address AS street_address,
     zipcode,
     state,

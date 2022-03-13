@@ -1,0 +1,200 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    columns:
+      - name: address_guid
+        description: Primary Key and Foreign Key. References stg_orders.address_guid
+        tests: 
+          - unique
+          - not_null
+          - relationship:
+                to: ref('orders')
+                field: address_guid
+      - name: street_address
+        tests:
+          - not_null
+      - name: zipcode
+        tests:
+          - not_null
+      - name: state
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+
+  - name: stg_events
+    columns:
+      - name: event_guid
+        description: >
+          Primary Key.
+        tests: 
+          - unique
+          - not_null
+      - name: session_guid
+        tests:
+          - not_null
+      - name: user_guid
+        description: >
+          Foreign Key. References stg_users.user_guid
+        tests:
+          - not_null
+          - relationship:
+              to: ref('users')
+              field: user_guid
+      - name: event_url
+        tests:
+          - not_null
+      - name: created_at_utc
+        tests:
+          - not_null
+      - name: event_type
+        tests:
+          - not_null
+      - name: order_guid
+        description: >
+          Foregin Key. References stg_orders.order_guid
+        tests:
+          - relationship:
+                to: ref('orders')
+                field: order_guid
+      - name: product_guid
+        description: >
+          Foregin Key. References stg_products.product_guid
+        tests:
+          - relationship:
+              to: ref('products')
+              field: product_guid
+
+  - name: stg_order_items
+    columns:
+      - name: order_guid
+        description: >
+          Primary Key and Foreign Key. References stg_order_guid.order_guid
+        tests:
+          - not_null
+          - relationship:
+              to: ref('orders')
+              field: order_guid
+      - name: product_guid
+        description: >
+          Foreign Key. References stg_products.product_guid
+        tests:
+          - not_null
+          - relationship:
+              to: ref('products')
+              field: product_guid
+      - name: quantity
+        tests:
+          - not_null
+
+  - name: stg_orders
+    columns:
+      - name: order_guid
+        description: Primary Key
+        tests:
+          - unique
+          - not_null
+      - name: user_guid
+        description: Foreign Key. References stg_users.user_guid
+        tests:
+          - not_null
+          - relationship:
+              to: ref('users')
+              field: user_guid
+      - name: promo_type
+        description: Foreign Key. References stg_promos.promo_type
+        tests:
+          - relationship:
+              to: ref('promos')
+              field: promo_type
+      - name: address_guid
+        description: Foregin Key. References stg_addresses.address_guid
+        tests:
+          - not_null
+          - relationship:
+              to: ref('addresses')
+              field: address_guid
+      - name: created_at_utc
+        tests:
+          - not_null
+      - name: order_cost
+        tests:
+          - not_null
+      - name: shipping_cost
+        tests:
+          - not_null
+      - name: order_total
+        tests:
+          - not_null
+      - name: tracking_guid
+      - name: shipping_service
+      - name: estimated_delivery
+      - name: delivered_at
+      - name: delivery_status
+        tests:
+          - not_null
+  
+  - name: stg_products
+    columns:
+      - name: product_guid
+        description: Primary Key.
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        tests:
+          - unique
+          - not_null
+      - name: price
+        tests:
+          - not_null
+      - name: inventory
+        tests:
+        - not_null
+
+  - name: stg_promos
+    columns:
+      - name: promo_type
+        description: Primary Key.
+        tests:
+          - unique
+          - not_null
+      - name: discount
+        tests:
+        - not_null
+      - name: status
+        tests:
+          - not_null
+    
+  - name: stg_users
+    columns:
+      - name: user_guid
+        description: Primary Key.
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        tests:
+          - not_null
+      - name: last_name
+        tests: 
+          - not_null
+      - name: email
+        tests:
+          - not_null
+      - name: phone_number
+        tests:
+          - not_null
+      - name: created_at_utc
+        tests:
+          - not_null
+      - name: updated_at_utc
+
+        tests:
+          - not_null
+      - name: address_guid
+        description: Foregin Key. References stg_addresses.address_guid
+        tests:
+          - not_null
