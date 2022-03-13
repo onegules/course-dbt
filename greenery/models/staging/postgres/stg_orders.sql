@@ -15,8 +15,8 @@ SELECT
     order_total,
     tracking_id AS tracking_guid,
     shipping_service,
-    estimated_delivery_at AS estimated_delivery,
-    delivered_at,
+    estimated_delivery_at AS estimated_delivery_utc,
+    delivered_at AS delivered_at_utc,
     status AS delivery_status
 FROM 
     {{ source('source', 'orders')}}
