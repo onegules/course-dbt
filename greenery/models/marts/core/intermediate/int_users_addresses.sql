@@ -18,7 +18,7 @@ SELECT
   ad.state,
   ad.country
 FROM
-  ref{{('stg_users')}} AS u
-LEFT JOIN ref{{'stg_addresses'}} AS ad
+  {{ref('stg_users')}} AS u
+LEFT JOIN {{ ref('stg_addresses') }} AS ad
   ON u.address_guid = ad.address_guid
 

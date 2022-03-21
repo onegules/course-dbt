@@ -16,6 +16,8 @@ SELECT
     o.delivered_at_utc,
     o.delivery_status
 
-FROM {{ref('stg_events')}} AS e
-LEFT JOIN {{ref('stg_orders')}} AS o
+FROM 
+    {{ref('stg_events')}} AS e
+LEFT JOIN 
+    {{ref('stg_orders')}} AS o
     ON e.order_guid = o.order_guid

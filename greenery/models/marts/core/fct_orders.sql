@@ -10,7 +10,7 @@ SELECT
     ua.first_name,
     ua.last_name,
     ua.email,
-    ua.phone_number
+    ua.phone_number,
     o.created_at_utc AS ordered_at_utc,
     o.order_cost,
     o.shipping_cost,
@@ -23,6 +23,8 @@ SELECT
     o.estimated_delivery_utc,
     o.delivered_at_utc,
     o.delivery_status
-FROM {{ref('stg_orders')}} AS o
-LEFT JOIN {{ref('int_users_adresses')}} AS ua
+FROM 
+  {{ref('stg_orders')}} AS o
+LEFT JOIN 
+  {{ref('int_users_addresses')}} AS ua
   ON o.user_guid = ua.user_guid
