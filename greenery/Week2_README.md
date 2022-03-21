@@ -45,6 +45,9 @@ Q. Use the dbt docs to visualize your model DAGs to ensure the model layers make
 
 A. 
 
+![image](https://user-images.githubusercontent.com/46457104/159216316-c177150d-5157-484b-bfd0-47b717f6e3a5.png)
+
+
 Part 2. Tests
 
 Q. What assumptions are you making about each model? (i.e. why are you adding each test?)
