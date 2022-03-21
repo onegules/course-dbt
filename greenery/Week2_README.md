@@ -13,9 +13,9 @@ FROM
 GROUP BY
   user_guid
 )
-
 SELECT (COUNT(user_guid) filter(WHERE purchase_count > 1) / COUNT(user_guid)::real) * 100
-FROM user_order_counts```
+FROM user_order_counts
+```
 
 Result: 79.83870967741935
 
