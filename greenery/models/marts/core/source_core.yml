@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+
+  - name: source_core
+    schema: public
+    database: dbt
+
+    tables:
+    - name: int_users_addresses
+    - name: dim_products
+    - name: dim_users
+    - name: fct_orders

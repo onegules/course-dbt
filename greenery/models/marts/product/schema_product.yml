@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_page_views
+    columns:
+    - name: event_at_utc
+    - name: event_type
+    - name: event_url
+    - name: order_cost
+    - name: shipping_cost
+    - name: order_total_cost
+    - name: shipping_service
+    - name: estimated_delivery_utc
+    - name: delivered_at_utc
+    - name: delivery_status

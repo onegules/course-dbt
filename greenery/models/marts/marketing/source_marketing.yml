@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+
+  - name: source_marketing 
+    schema: public
+    database: dbt
+
+    tables:
+    - name: fct_users_orders
+    - name: int_orders_discounts
