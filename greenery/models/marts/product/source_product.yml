@@ -8,3 +8,4 @@ sources:
 
     tables:
     - name: fct_page_views
+    - name: int_page_views

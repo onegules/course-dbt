@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: fct_page_views
+  - name: int_page_views
     columns:
     - name: event_at_utc
       tests:
