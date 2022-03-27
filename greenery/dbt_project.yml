@@ -36,3 +36,9 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+  
+  # For future reference:
+  # https://discourse.getdbt.com/t/the-exact-grant-statements-we-use-in-a-dbt-project/430
+  post-hook: 'grant select on {{ this }} to group reporter'
+  on_run_end:
+  - 'grant usage on schema {{ target.schema }} to group reporter'
