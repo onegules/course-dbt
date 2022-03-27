@@ -39,6 +39,6 @@ models:
   
   # For future reference:
   # https://discourse.getdbt.com/t/the-exact-grant-statements-we-use-in-a-dbt-project/430
-  post-hook: 'grant select on {{ this }} to group reporter'
+  post-hook: 'grant select on {{ this }} to group reporting'
   on_run_end:
-  - 'grant usage on schema {{ target.schema }} to group reporter'
+  - 'grant usage on schema {{ target.schema }} to group reporting'
