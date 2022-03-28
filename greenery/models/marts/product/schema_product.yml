@@ -21,4 +21,5 @@ models:
     - name: delivered_at_utc
     - name: delivery_status
   - name: int_page_view_counts_by_product
-  - name: int_page_view_count_pivot_table
+  - name: int_checkout_count_by_product
+  - name: dim_conversion_rate_by_products

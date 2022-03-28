@@ -10,4 +10,5 @@ sources:
     - name: fct_page_views
     - name: int_page_views
     - name: int_page_view_counts_by_product
-    - name: int_page_view_count_pivot_table
+    - name: int_checkout_count_by_product
+    - name: dim_conversion_rate_by_products
