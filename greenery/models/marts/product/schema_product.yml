@@ -20,3 +20,5 @@ models:
     - name: estimated_delivery_utc
     - name: delivered_at_utc
     - name: delivery_status
+  - name: int_page_view_counts_by_product
+  - name: int_page_view_count_pivot_table

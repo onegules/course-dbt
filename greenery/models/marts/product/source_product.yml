@@ -9,3 +9,5 @@ sources:
     tables:
     - name: fct_page_views
     - name: int_page_views
+    - name: int_page_view_counts_by_product
+    - name: int_page_view_count_pivot_table
