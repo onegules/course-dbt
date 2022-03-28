@@ -16,6 +16,9 @@ A.
 
 See picture.
 
+![image](https://user-images.githubusercontent.com/46457104/160331311-f17af61d-80da-4fdf-bfb1-15414c861786.png)
 
 
 DBT DAG:
+
+![image](https://user-images.githubusercontent.com/46457104/160331338-2afbd012-e9e2-463b-8629-b029f62df6c0.png)
