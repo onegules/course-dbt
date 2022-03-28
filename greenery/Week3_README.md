@@ -6,7 +6,8 @@ A.
 
 ```SELECT SUM(checkout) / COUNT(session_guid)
 FROM 
-  dbt_ovidiu_n.int_sessions_by_event_type;```
+  dbt_ovidiu_n.int_sessions_by_event_type;
+```
 
 Result: 0.62456747404844290657
 
