@@ -5,7 +5,8 @@ Q. What is our overall conversion rate?
 A. 
 
 ```
-SELECT SUM(checkout) / COUNT(session_guid)
+SELECT 
+  SUM(checkout) / COUNT(session_guid)
 FROM 
   dbt_ovidiu_n.int_sessions_by_event_type;
 ```
