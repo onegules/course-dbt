@@ -12,3 +12,4 @@ sources:
     - name: int_page_view_counts_by_product
     - name: int_checkout_count_by_product
     - name: dim_conversion_rate_by_products
+    - name: product_funnel

@@ -23,3 +23,21 @@ models:
   - name: int_page_view_counts_by_product
   - name: int_checkout_count_by_product
   - name: dim_conversion_rate_by_product
+  - name: product_funnel
+    columns:
+    - name: total_sessions
+      description: >
+        A count of the total sessions that had either a 
+        page_view, checkout, add_to_cart or package_shipped event. Note that a 
+        package shipped event only occurs when a checkout event has occurred.
+      tests:
+          - not_null
+    - name: purchase_event
+      description: >
+        A count of the sessions with both add_to_cart and checkout events.
+      tests:
+          - not_null
+    - name: checkout_event
+      description: A count of the sessions with checkout events.
+      tests:
+          - not_null
