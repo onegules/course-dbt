@@ -5,11 +5,26 @@ A.
 Yes. Here is the result of the update:
 
 ```
+SELECT 
+  order_id,
+  tracking_id,
+  shipping_service,
+  status, 
+  dbt_scd_id,
+  dbt_updated_at,
+  dbt_valid_from,
+  dbt_valid_to
+FROM 
+  snapshots.orders_snapshot
+WHERE
+  order_id in ('914b8929-e04a-40f8-86ee-357f2be3a2a2', '05202733-0e17-4726-97c2-0520c024ab85',
 
+'939767ac-357a-4bec-91f8-a7b25edd46c9')
 ```
 
 Result:
 
+![image](https://user-images.githubusercontent.com/46457104/161402393-0e04f6f2-46e3-4c85-9e1f-68b6e70abd7d.png)
 
 Q. How are users moving through the product funnel? Which steps in the funnel have the largest drop off points?
 
@@ -28,6 +43,8 @@ FROM
 ```
 
 Result:
+
+![image](https://user-images.githubusercontent.com/46457104/161402262-a80a4366-f27f-4efb-bbb7-be33c28dffde.png)
 
 The columns are defined as follows:
 
@@ -49,3 +66,4 @@ So, the largest dropoff point is from adding to cart to checking out the product
 
 As an extra, here's the DAG for this week:
 
+![image](https://user-images.githubusercontent.com/46457104/161402488-16d156b2-a7ba-4462-8bdc-b79dc1e8b853.png)
