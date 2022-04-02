@@ -1,3 +1,5 @@
+### Part 1: DBT Snapshots
+
 Q. Did you see the data change via the snapshot?
 
 A.
@@ -25,6 +27,8 @@ WHERE
 Result:
 
 ![image](https://user-images.githubusercontent.com/46457104/161402393-0e04f6f2-46e3-4c85-9e1f-68b6e70abd7d.png)
+
+### Part 2: Modeling Challenge
 
 Q. How are users moving through the product funnel? Which steps in the funnel have the largest drop off points?
 
@@ -69,3 +73,19 @@ So, the largest dropoff point is from adding to cart to checking out the product
 As an extra, here's the DAG for this week:
 
 ![image](https://user-images.githubusercontent.com/46457104/161402488-16d156b2-a7ba-4462-8bdc-b79dc1e8b853.png)
+
+DAGs are fun.
+
+### Part 3: Reflection Questions.
+
+#### 3A. DBT Next steps.
+
+My organization is not currently using DBT. We're a startup whose main product is machine learning models and their predictions. We already have a decision maker on-board (the problem is always having the time to actually implement these new ideas!). I work as a data scientist and most of the process - as every data scientist will tell you - is transforming data. We have a custom built pipeline, written in python, that we run almost every time we pull data from our database. Further, this process, or a very similar one, is used for data in production. The use case for DBT would be simply to transform this data before it gets into the hands of our data science team thus speeding them up. For a relatively small team, any time improvements is a big deal and would make everyone more efficient, so it has been a simple sell. We hope to start implementing DBT in the coming months.
+
+#### 3B. Setting up for production
+
+Setting up a production DBT project would first mean using an orchestration tool. I prefer dagster since most of our team primarily codes in python and it would be the most familiar for everyone. Next, scheduling depends on how often this data is ingested and is useful to look at and inspect. For instance, if - in the case of greenery - we were ingesting order data daily, then it might make sense to have the models be created every morning before people start coming in to work. However, if we're a smaller company and our orders, products and user count are not changing much daily (say, >10 orders a day - chosen arbitrarily), it might make sense to create models more infrequently such as on a weekly basis or once every few days. That said, in either case testing on data going into the data warehouse should be tested daily at minimum for any irregularities.
+
+Setting up snapshots for orders is also important. This would allow us to check that orders are properly being updated. Even though our tests can already include stuff like if one row is null, another should be filled, or vice versa, using snapshots would ensure the code updating these pieces is working properly and could alert us if anything is going wrong quickly. Also, setting up proper snapshots could give more information regarding expected delivery times and making sure our products are arriving in a timely manner, lowering the rate of complaints. How often to run our snapshots also depend on how much and how often we're ingesting data, however they should be run at minimum daily. We are interested in knowing any and all changes to our orders so keeping this table updated is important.
+
+Finally, our dashboard can be improved. While understanding the product funnel and how our users interact with the site is important, what about information about what products our users are buying? What are the most commonly bought items? At what price? Is there an influx of purchases if there's a promotion? Are our users using promotions when they're available? These questions are not necessarily difficult to answer but knowing historical purchase trends will help inform business decisions.
