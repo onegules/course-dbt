@@ -58,8 +58,10 @@ checkout_event - A count of the sessions with checkout events.
 
 Taken from `greenery/models/product/schema_product.yml`.
 
-From this we can see that the dropoff from a page view to a purchase event is 19.2% (1 - (total_sessions / purchase_event)).
-The dropoff from a purchase event to a checkout event is 22.7% (1 - (purchase_event / checkout_event)).
+From this we can see:
+
+- The dropoff from a page view to a purchase event is 19.2% (`1 - (total_sessions / purchase_event)`).
+- The dropoff from a purchase event to a checkout event is 22.7% (`1 - (purchase_event / checkout_event)`).
 
 So, the largest dropoff point is from adding to cart to checking out the product.
 
