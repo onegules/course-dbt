@@ -1,6 +1,0 @@
-version: 2
-
-macros:
-  - name: grant_read_role
-    description: Macro to grant a role reading permissions
-    arguments: role

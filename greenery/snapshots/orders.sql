@@ -3,13 +3,12 @@
   {{
     config(
       target_schema='snapshots',
-      unique_key='id',
-
-      strategy='timestamp',
-      updated_at='updated_at',
+      unique_key='order_id',
+      strategy='check',
+      check_cols=['status', 'tracking_id', 'shipping_service'],
     )
   }}
 
-  SELECT * FROM {{ source('orders') }}
+  SELECT * FROM {{ source('source', 'orders') }}
 
 {% endsnapshot %}
